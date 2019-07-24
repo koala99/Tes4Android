@@ -38,11 +38,11 @@ class MainActivity : AppCompatActivity() {
 
     fun initdata() {
         send_msg.setOnClickListener {
-            Log.e("发送消息", "1")
+            getDeviceInfo()
 //            var mMessage = Message()
 //            mMessage.what = 1
 //            mHandler.sendMessageDelayed(mMessage, 5000)
-            mHandler.obtainMessage(0, "hello world").sendToTarget();
+//            mHandler.obtainMessage(0, "hello world").sendToTarget();
 
         }
         dis_msg.setOnClickListener {
@@ -86,6 +86,41 @@ class MainActivity : AppCompatActivity() {
             e.printStackTrace()
         }
 
+    }
+
+    fun getDeviceInfo() {
+        var deviceId = SystemInfoUtils.getDeviceId(this@MainActivity)
+        var imeiId = SystemInfoUtils.getImei(this@MainActivity)
+        var androidId = SystemInfoUtils.getAndroidId(this@MainActivity)
+        var product = android.os.Build.PRODUCT
+        var brand = android.os.Build.BRAND
+        var broad = android.os.Build.BOARD
+        var cupAbi = android.os.Build.CPU_ABI
+        var cupAbi2 = android.os.Build.CPU_ABI2
+        var tags = android.os.Build.TAGS
+        var model = android.os.Build.MODEL
+        var VERSION_CODES_base = android.os.Build.VERSION_CODES.BASE
+        var SDK = android.os.Build.VERSION.SDK
+        var VERSION_RELEASE = android.os.Build.VERSION.RELEASE
+        var DEVICE = android.os.Build.DEVICE
+        var sdk_int = android.os.Build.VERSION.SDK_INT
+        var CODENAME = android.os.Build.VERSION.CODENAME
+        var INCREMENTAL = android.os.Build.VERSION.INCREMENTAL
+        var DISPLAY = android.os.Build.DISPLAY
+        var HARDWARE = android.os.Build.HARDWARE
+        var BOOTLOADER = android.os.Build.BOOTLOADER
+        var USER = android.os.Build.USER
+        var MANUFACTURER = android.os.Build.MANUFACTURER
+        var FINGERPRINT = android.os.Build.FINGERPRINT
+        var id = android.os.Build.ID
+        var user = android.os.Build.USER
+        var type = android.os.Build.TYPE
+        var radio = android.os.Build.RADIO
+        var time = android.os.Build.TIME
+        var serial = android.os.Build.SERIAL
+        var host = android.os.Build.HOST
+//        vnwl3:google:742574626528451:588088167614103
+        Log.e("status", product + ":" + brand + ":" + deviceId + ":" + imeiId)
     }
 
 }
